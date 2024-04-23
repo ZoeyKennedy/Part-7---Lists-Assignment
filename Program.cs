@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Transactions;
 
 namespace Part_7___Lists_Assignment
 {
@@ -34,6 +37,8 @@ namespace Part_7___Lists_Assignment
             string choice = "";
 
             int removeNumber;
+            int addNum;
+            bool deleteNum;
 
             while (choice != "q")
             {
@@ -49,6 +54,7 @@ namespace Part_7___Lists_Assignment
                 Console.WriteLine("1 - Sort numbers");
                 Console.WriteLine("2 - Generate new numbers");
                 Console.WriteLine("3 - Remove numbers");
+                Console.WriteLine("4 - Add a number");
                 Console.WriteLine("...");
                 Console.WriteLine("x - Menu Option x");
                 Console.WriteLine("Q - Quit");
@@ -65,7 +71,7 @@ namespace Part_7___Lists_Assignment
                     numbers.Sort();
                     foreach (int name in numbers)
                     {
-                        Console.Write(($"{name}") + " ");//name stays the same 
+                        Console.Write(($"{name}") + " ");
                     }
                     Console.ReadLine();
                 }
@@ -73,17 +79,17 @@ namespace Part_7___Lists_Assignment
                 {
                     // Generate new numbers
                     Console.WriteLine("You chose option 2");
-                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.WriteLine("Hit ENTER to c ontinue.");
                     Console.ReadLine();
                     numbers.Clear();
-                    for (int i = 1; i <= 25; i++) //20 numbers
+                    for (int i = 1; i <= 25; i++) 
                     {
                         
                         numbers.Add(Generator.Next(10, 21));
                     }
                     foreach (int name in numbers)
                     {
-                        Console.Write(($"{name}") + " ");//name stays the same 
+                        Console.Write(($"{name}") + " ");
                     }
                     Console.ReadLine();
                     
@@ -97,25 +103,36 @@ namespace Part_7___Lists_Assignment
                     Console.WriteLine("What number would you like to remove?");
                         removeNumber = Convert.ToInt32(Console.ReadLine());
 
-                    numbers.Remove(removeNumber); //remove all?
+                  public bool Remove (T item);
+
+                        numbers.Remove(removeNumber); //remove every one
                     Console.WriteLine();
-                    foreach (int name in numbers)
-                    {
-                        if (List<numbers> == removeNumber)
-                        { 
-
-                        }
-
-                    }
                     foreach (int name in numbers)
                     {
 
                             Console.Write(" " + $"{name}" + " ");
+
                     }
 
                     Console.WriteLine();
 
                     Console.ReadLine();
+                }
+                else if (choice == "4")
+                {
+                    Console.WriteLine("You chose option 4");
+                    Console.WriteLine("Press ENTER to continue.");
+                    Console.ReadLine();
+
+                    Console.WriteLine("Enter the number you want to add. It needs to be between 10 and 25.");
+                    addNum = Convert.ToInt32(Console.ReadLine());
+                    numbers.Add(addNum);
+                    foreach (int name in numbers)
+                    {
+
+                        Console.Write(" " + $"{name}" + " ");
+                    }
+
                 }
                 // Add an else if for each valid choice...
 
