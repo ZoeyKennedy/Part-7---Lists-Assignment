@@ -33,6 +33,8 @@ namespace Part_7___Lists_Assignment
 
             string choice = "";
 
+            int removeNumber;
+
             while (choice != "q")
             {
                 foreach (int name in numbers)
@@ -45,7 +47,8 @@ namespace Part_7___Lists_Assignment
                 Console.WriteLine("Welcome to my generic menu.  Please select an option:");
                 Console.WriteLine();
                 Console.WriteLine("1 - Sort numbers");
-                Console.WriteLine("2 - Generate new numbers 2");
+                Console.WriteLine("2 - Generate new numbers");
+                Console.WriteLine("3 - Remove numbers");
                 Console.WriteLine("...");
                 Console.WriteLine("x - Menu Option x");
                 Console.WriteLine("Q - Quit");
@@ -53,9 +56,9 @@ namespace Part_7___Lists_Assignment
                 choice = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
 
-                if (choice == "1")
+                if (choice == "1") // how to sort the new numbers instead of the old ones?
                 {
-                    //Do option 1
+                    // Sort numbers
                     Console.WriteLine("You chose option 1");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
@@ -66,9 +69,9 @@ namespace Part_7___Lists_Assignment
                     }
                     Console.ReadLine();
                 }
-                else if (choice == "2")
+                else if (choice == "2") 
                 {
-                    // Do option 2
+                    // Generate new numbers
                     Console.WriteLine("You chose option 2");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
@@ -83,7 +86,36 @@ namespace Part_7___Lists_Assignment
                         Console.Write(($"{name}") + " ");//name stays the same 
                     }
                     Console.ReadLine();
+                    
+                }
+                else if (choice == "3")
+                {
+                    // Remove a number
+                    Console.WriteLine("You chose option 3");
+                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.ReadLine();
+                    Console.WriteLine("What number would you like to remove?");
+                        removeNumber = Convert.ToInt32(Console.ReadLine());
 
+                    numbers.Remove(removeNumber); //remove all?
+                    Console.WriteLine();
+                    foreach (int name in numbers)
+                    {
+                        if (List<numbers> == removeNumber)
+                        { 
+
+                        }
+
+                    }
+                    foreach (int name in numbers)
+                    {
+
+                            Console.Write(" " + $"{name}" + " ");
+                    }
+
+                    Console.WriteLine();
+
+                    Console.ReadLine();
                 }
                 // Add an else if for each valid choice...
 
