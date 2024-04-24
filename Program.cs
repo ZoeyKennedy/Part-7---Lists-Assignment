@@ -17,7 +17,7 @@ namespace Part_7___Lists_Assignment
             List<int> numbers = new List<int>() {};
             for (int i = 1; i <= 25 ; i++) //20 numbers
             {
-                numbers.Add(Generator.Next(10, 21));
+                numbers.Add(Generator.Next(10, 20));
             }
 
             foreach (int name in numbers)
@@ -31,21 +31,25 @@ namespace Part_7___Lists_Assignment
            // }
 
             Console.WriteLine();
-            Console.WriteLine(numbers[6]);
-            Console.WriteLine(numbers[8]);
+           // Console.WriteLine(numbers[6]);
+           // Console.WriteLine(numbers[8]);
 
             string choice = "";
 
             int removeNumber;
             int addNum;
-            bool deleteNum;
+            int countOccurence;
+            int counter;
+            counter = 0;
+
+            foreach (int name in numbers)
+            {
+                Console.Write(($"{name}") + " ");//name stays the same 
+            }
 
             while (choice != "q")
             {
-                foreach (int name in numbers)
-                {
-                    Console.Write(($"{name}") + " ");//name stays the same 
-                }
+               
                 // Console.Clear(); // Optional
                 Console.WriteLine();
                 Console.WriteLine();
@@ -55,6 +59,7 @@ namespace Part_7___Lists_Assignment
                 Console.WriteLine("2 - Generate new numbers");
                 Console.WriteLine("3 - Remove numbers");
                 Console.WriteLine("4 - Add a number");
+                Console.WriteLine("5 - Count the number of occurances of a specified number");
                 Console.WriteLine("...");
                 Console.WriteLine("x - Menu Option x");
                 Console.WriteLine("Q - Quit");
@@ -103,18 +108,23 @@ namespace Part_7___Lists_Assignment
                     Console.WriteLine("What number would you like to remove?");
                         removeNumber = Convert.ToInt32(Console.ReadLine());
 
-                  public bool Remove (T item);
+                  
 
-                        numbers.Remove(removeNumber); //remove every one
+                        numbers.RemoveAll(i => i == removeNumber); //remove every one
                     Console.WriteLine();
                     foreach (int name in numbers)
                     {
-
-                            Console.Write(" " + $"{name}" + " ");
-
+                        if (numbers.Count == removeNumber)
+                        {
+                            numbers.RemoveAll(i => i == removeNumber);
+                           
+                        }
                     }
+                    foreach (int name in numbers)
+                    {
 
-                    Console.WriteLine();
+                        Console.Write(" " + $"{name}" + " ");
+                    }
 
                     Console.ReadLine();
                 }
@@ -126,14 +136,37 @@ namespace Part_7___Lists_Assignment
 
                     Console.WriteLine("Enter the number you want to add. It needs to be between 10 and 25.");
                     addNum = Convert.ToInt32(Console.ReadLine());
+                    while (addNum > 25 || addNum < 10)
+                    {
+                        Console.WriteLine("The number needs to be between 10 and 25");
+                        addNum = Convert.ToInt32(Console.ReadLine());
+                    }
                     numbers.Add(addNum);
                     foreach (int name in numbers)
                     {
 
                         Console.Write(" " + $"{name}" + " ");
                     }
+                    Console.ReadLine();
+                }
+                else if (choice == "5")
+                {
+                    Console.WriteLine("What number would you like to count the occurances of?");
+                    while (!int.TryParse(Console.ReadLine(), out countOccurence) || countOccurence < 10 || countOccurence > 25)
+                        Console.WriteLine("Choose a number between 10 and 25");
+                    Console.ReadLine();
+                    foreach (int name in numbers)
+                    {
+                      numbers.Count(countOccurencce => countOccurence == (counter = counter +1)); //code not working
+                    }
+                    
+                    Console.WriteLine(counter);
+
+
+                    Console.ReadLine();
 
                 }
+
                 // Add an else if for each valid choice...
 
                 else
