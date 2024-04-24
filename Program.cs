@@ -157,7 +157,8 @@ namespace Part_7___Lists_Assignment
                     Console.ReadLine();
                     foreach (int name in numbers)
                     {
-                      numbers.Count(countOccurencce => countOccurence == (counter = counter +1)); //code not working
+                      numbers.Count(countOccurencce => countOccurence == (counter = counter +1)); //code not working, 
+                        //can use a for loop to check first number and if true add 1 to counter
                     }
                     
                     Console.WriteLine(counter);
