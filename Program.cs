@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Part_7___Lists_Assignment
 {
@@ -99,25 +101,19 @@ namespace Part_7___Lists_Assignment
                     Console.WriteLine("What number would you like to remove?");
                         removeNumber = Convert.ToInt32(Console.ReadLine());
 
-                  foreach (int name in numbers)//??
+                  for (int i = numbers.Count - 1; i >= 0; i-- )
                     {
-                        if (name == removeNumber)
-                            numbers.Remove(removeNumber);
+                        if (numbers[i] == removeNumber)
+                            numbers.RemoveAt(i);
 
+                    }
+                  foreach (int name in numbers)
+                    {
                         Console.Write(" " + $"{name}" + " ");
                     }
-                  
-                    Console.WriteLine();
-               //     foreach (int name in numbers)
-                //    {
-
-                //            Console.Write(" " + $"{name}" + " ");
-
-                //    }
-
-                   
 
                     Console.ReadLine();
+
                 }
                 else if (choice == "4")
                 {
