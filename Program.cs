@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Metrics;
 
 namespace Part_7___Lists_Assignment
 {
@@ -53,6 +54,8 @@ namespace Part_7___Lists_Assignment
                 Console.WriteLine("2 - Generate new numbers");
                 Console.WriteLine("3 - Remove numbers");
                 Console.WriteLine("4 - Add a number");
+                Console.WriteLine("5 - Count the occurances of a specified number");
+                Console.WriteLine("6 - PRint the largest value");
                 Console.WriteLine("...");
                 Console.WriteLine("x - Menu Option x");
                 Console.WriteLine("Q - Quit");
@@ -137,15 +140,44 @@ namespace Part_7___Lists_Assignment
                     }
                     Console.ReadLine();
                 }
-                // Add an else if for each valid choice...
+                
                 else if (choice == "5")
                 {
                     //Count number of occurances of a specified number
+                    int countOccurances;
+                    int counter;
+                    counter = 0;
+                    Console.WriteLine("You chose option 5");
+                    Console.WriteLine("Press ENTER to continue.");
+                    Console.ReadLine();
+                    Console.WriteLine("What number do you want to count the occurances of?");
+                    countOccurances = Convert.ToInt32(Console.ReadLine());
+                    for (int i = numbers.Count - 1; i >= 0; i--)
+                    {
+                        if (numbers[i] == countOccurances)
+                            counter = counter + 1;
+
+                    }
+                    Console.WriteLine("number of occurances of the number " + countOccurances + ": " + counter);
+
+                    Console.ReadLine();
 
                 }
-                else if (choice == "6")
+                else if (choice == "6")//print the largest value
                 {
-
+                    int largestValue;
+                    largestValue = 0;
+                      for (int i = numbers.Count - 1; i >= 0; i--)
+                    { 
+                        if (numbers[i] > numbers[i] - 1)
+                        {
+                            largestValue = numbers[i];
+                        }
+                        
+                    }
+                        Console.WriteLine("The largest value in the list is " + largestValue);
+                        Console.ReadLine();
+                  
 
                 }
                 else
@@ -153,6 +185,14 @@ namespace Part_7___Lists_Assignment
                     Console.WriteLine("Invalid choice, press ENTER to continue.");
                     Console.ReadLine();
                 }
+                // Add an else if for each valid choice...
+
+
+
+
+
+
+
             }
 
 
