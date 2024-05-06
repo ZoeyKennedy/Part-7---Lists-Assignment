@@ -156,6 +156,7 @@ namespace Part_7___Lists_Assignment
                     {
                         if (numbers[i] == countOccurances)
                             counter = counter + 1;
+                        
 
                     }
                     Console.WriteLine("number of occurances of the number " + countOccurances + ": " + counter);
@@ -179,6 +180,15 @@ namespace Part_7___Lists_Assignment
                         Console.ReadLine();
                   
 
+                }
+                else if (choice == "7")
+                {
+
+                }
+
+                else if (choice == "8")
+                {
+                    Environment.Exit(0);
                 }
                 else
                 {
