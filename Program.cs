@@ -16,7 +16,7 @@ namespace Part_7___Lists_Assignment
             List<int> numbers = new List<int>() {};
             for (int i = 1; i <= 25 ; i++) //20 numbers
             {
-                numbers.Add(Generator.Next(10, 21));
+                numbers.Add(Generator.Next(10, 20));
             }
 
             foreach (int name in numbers)
@@ -30,21 +30,25 @@ namespace Part_7___Lists_Assignment
            // }
 
             Console.WriteLine();
-            Console.WriteLine(numbers[6]);
-            Console.WriteLine(numbers[8]);
+           // Console.WriteLine(numbers[6]);
+           // Console.WriteLine(numbers[8]);
 
             string choice = "";
 
             int removeNumber;
             int addNum;
-            bool deleteNum;
+            int countOccurence;
+            int counter;
+            counter = 0;
+
+            foreach (int name in numbers)
+            {
+                Console.Write(($"{name}") + " ");//name stays the same 
+            }
 
             while (choice != "q")
             {
-                foreach (int name in numbers)
-                {
-                    Console.Write(($"{name}") + " ");//name stays the same 
-                }
+               
                 // Console.Clear(); // Optional
                 Console.WriteLine();
                 Console.WriteLine();
