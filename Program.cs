@@ -55,7 +55,9 @@ namespace Part_7___Lists_Assignment
                 Console.WriteLine("3 - Remove numbers");
                 Console.WriteLine("4 - Add a number");
                 Console.WriteLine("5 - Count the occurances of a specified number");
-                Console.WriteLine("6 - PRint the largest value");
+                Console.WriteLine("6 - Print the largest value");
+                Console.WriteLine("7 - Print the smallest value");
+                Console.WriteLine("8 - Clear console");
                 Console.WriteLine("...");
                 Console.WriteLine("x - Menu Option x");
                 Console.WriteLine("Q - Quit");
@@ -166,11 +168,14 @@ namespace Part_7___Lists_Assignment
                 }
                 else if (choice == "6")//print the largest value
                 {
+                    Console.WriteLine("You chose option 6");
+                    Console.WriteLine("Press ENTER to continue.");
+                    Console.ReadLine();
                     int largestValue;
                     largestValue = 0;
                       for (int i = numbers.Count - 1; i >= 0; i--)
                     { 
-                        if (numbers[i] > numbers[i] - 1)
+                        if (numbers[i] > largestValue)
                         {
                             largestValue = numbers[i];
                         }
@@ -183,12 +188,28 @@ namespace Part_7___Lists_Assignment
                 }
                 else if (choice == "7")
                 {
+                    Console.WriteLine("You chose option 7");
+                    Console.WriteLine("Press ENTER to continue.");
+                    Console.ReadLine();
+                    int smallestValue;
+                    smallestValue = 0;
+                    for (int i = numbers.Count - 1; i >= 0; i--)
+                    {
+                        if (numbers[i] < smallestValue)
+                        {
+                            smallestValue = numbers[i];
+                        }
+
+                    }
+                    Console.WriteLine("The smallest value in the list is " + smallestValue);
+                    Console.ReadLine();
 
                 }
-
+                
                 else if (choice == "8")
                 {
-                    Environment.Exit(0);
+                    Console.Clear();
+
                 }
                 else
                 {
